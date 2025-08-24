@@ -46,6 +46,7 @@ async function login(event) {
         const { token } = await response.json();
         localStorage.setItem('jwtToken', token);
         window.location.href = '/dashboard.html';
+
     } catch (error) {
         errorElement.textContent = error.message.includes('Invalid credentials') 
         ? 'Неверный логин или пароль' 
