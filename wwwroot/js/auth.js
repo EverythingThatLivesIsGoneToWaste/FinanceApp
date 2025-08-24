@@ -48,7 +48,7 @@ async function login(event) {
         window.location.href = '/dashboard.html';
 
     } catch (error) {
-        errorElement.textContent = error.message.includes('Invalid credentials') 
+        errorElement.textContent = error.message.includes('Неверный логин или пароль') 
         ? 'Неверный логин или пароль' 
         : 'Ошибка при входе';
     }
