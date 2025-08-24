@@ -16,14 +16,14 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Настройка JwtSettings
+// JwtSettings
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
-// Аутентификация JWT
+// JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        // Получаем конфигурацию напрямую из Configuration
+        // From config
         var jwtSecret = builder.Configuration["JwtSettings:SecretKey"]
                         ?? throw new Exception("JWT Secret is not configured");
 
