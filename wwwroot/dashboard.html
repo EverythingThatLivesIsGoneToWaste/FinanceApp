@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="left-column">
+            <div class="charts-section">
+                <h2>Аналитика</h2>
+                <div class="chart-container">
+                    <canvas id="Chart"></canvas>
+                </div>
+                <button id="toggleAnalytics">Переключить</button>
+            </div>
+            
+            <div class="balance-form">
+                <h2>Баланс</h2>
+                <div class="balance-row">
+                    <div id="balanceDisplay">Загрузка...</div>
+                    <button class="updateBalance">Обновить</button>
+                </div>
+                <!--<div class="chart-container">
+                    <canvas id="monthlyChart"></canvas>
+                </div>-->
+            </div>
+        </div>
+        <div class="content-section">
+            <form id="transactionForm">
+                <h2>Добавить операцию</h2>
+                <input type="number" id="amount" placeholder="Сумма" step="0.01" min="0.01" required>
+                <select id="type" required>
+                    <option value="Income">Доход</option>
+                    <option value="Expense">Расход</option>
+                </select>
+                <select id="category" required>
+                    <option value="Зарплата">Зарплата</option>
+                    <option value="Еда">Еда</option>
+                    <option value="Транспорт">Транспорт</option>
+                    <option value="Одежда">Одежда</option>
+                    <option value="Другое">Другое</option>
+                </select>
+                <input type="date" id="date" required>
+                <input type="text" id="description" placeholder="Комментарий">
+                <button type="submit">Добавить</button>
+            </form>
+            <div id="transactions">
+                <h2>История операций</h2>
+                <div class="filters">
+                    <div class="filter-row">
+                        <select id="filterType">
+                            <option value="all">Все операции</option>
+                            <option value="income">Только доходы</option>
+                            <option value="expense">Только расходы</option>
+                        </select>
+                        
+                        <select id="filterCategory">
+                            <option value="all">Все категории</option>
+                            <option value="Зарплата">Зарплата</option>
+                            <option value="Еда">Еда</option>
+                            <option value="Транспорт">Транспорт</option>
+                            <option value="Одежда">Одежда</option>
+                            <option value="Другое">Другое</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-row">
+                        <input type="month" id="filterMonth">
+                        <button type="button" id="clearFilters">Сбросить</button>
+                    </div>
+                    
+                </div>
+                <div id="transactionsList">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>
