@@ -5,7 +5,6 @@ Frontend: HTML/CSS/JS (static pages)
 Deployment: Docker
 
 Run with Docker:
-cd TaskTracker
 docker-compose up --build
 
 Web interface: http://localhost:5000/login.html
